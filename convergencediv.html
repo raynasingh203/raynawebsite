@@ -1,0 +1,227 @@
+<html>
+<head>
+    
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: white;
+            text-align: left;
+            margin: 30px;
+        }
+
+        h1 {
+            color: rgb(0,0,0);
+            text-align: center;
+            font-size: 35px;
+            margin: 30px;
+            font:didot;
+        }
+
+        img {
+            margin: 30px;
+        }
+
+        p {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            margin: 30px
+        }
+        .special-paragraph {
+            color:rgb(105, 152, 171) ;
+            text-align: left;
+            margin: 30px
+        }
+
+        .paraleft{
+            text-align:center; ;
+            color:rgb(64, 104, 130);
+            margin: 30px;
+        }
+       .parastart{
+        text-align: center;
+        font-size:18;
+        font-weight: normal;
+        margin: 30px;
+       }
+       h2 {
+        text-align: center;
+        margin: 30px
+       }
+
+         ul li {
+            text-align: justify;
+             font-size: 16px; 
+              margin-bottom: 4px; 
+              color:rgb(105, 152, 171);
+              font-weight: normal;
+             }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Cultural Convergence</h1>
+        <p class="parastart"> </p>
+    <br>
+
+    
+    <center><img src="wokr.png" style="max-width: 345px; height: 250px; display: block; margin: 0 auto;"> </center>
+
+    <h2> </h2>
+    
+    <h2> Global Entertainment Trends </h2>
+    <center><h3> Market Shares of streaming (OTT) platforms in India </h3></center>
+
+    
+    <div style="max-width: 800px; margin: 0 auto;">
+        <canvas id="myPieChart" width="500" height="200"></canvas>
+ <script>
+    // Your data
+    var data = {
+      labels: ["Netflix", "Amazon Prime Video", "ZEE5", "JIO", "ALT Balaji", "Sony Liv", "Others", "Disney Hotstar"],
+      datasets: [{
+        data: [20, 20, 9, 7, 4, 4, 19, 17],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.7)',
+          'rgba(54, 162, 235, 0.7)',
+          'rgba(255, 206, 86, 0.7)',
+          'rgba(75, 192, 192, 0.7)',
+          'rgba(153, 102, 255, 0.7)',
+          'rgba(255, 159, 64, 0.7)',
+          'rgba(102, 255, 102, 0.7)',
+          'rgba(255, 140, 0, 0.7)'
+        ],
+      }]
+    };
+
+    // Get the context of the canvas element we want to select
+    var ctx = document.getElementById('myPieChart').getContext('2d');
+
+    // Create the pie chart
+    var myPieChart = new Chart(ctx, {
+      type: 'pie',
+      data: data,
+    });
+  </script>
+    
+ 
+    
+  <p class="special-paragraph"> Pie chart depicting the rise of International Brands to the top of Indian Streaming Market </p> 
+  
+
+<br>
+
+   <h2> Growth of the Indian M&E industry </h2>
+    <div style="max-width: 800px; margin: 0 auto;">
+        <canvas id="industryChart" width="600" height="500"></canvas>
+    </div>
+    
+  <script>
+    // Data
+    var years = ["FY19", "FY20", "FY21", "FY22", "FY23", "FY24"];
+    var digitalData = [173, 234, 303, 386, 492, 621];
+    var tvData = [714, 824, 935, 1025, 1121, 1215];
+    var printData = [333, 346, 360, 375, 390, 409];
+    var filmsData = [183, 198, 214, 228, 242, 260];
+    var gamingData = [62, 88, 119, 154, 200, 250];
+    var animationData = [88, 103, 121, 140, 161, 184];
+    var oohData = [34, 37, 40, 44, 48, 52];
+    var radioData = [28, 31, 34, 38, 41, 45];
+    var musicData = [17, 19, 22, 26, 30, 35];
+    var totalData = [1631, 1880, 2148, 2415, 2725, 3070];
+    var cagrData = [null, null, null, null, null, null, 13.50];
+
+    // Scale up CAGR values
+    var cagrScaleFactor = 50; // Adjust this factor as needed
+    cagrData = cagrData.map(value => value * cagrScaleFactor);
+
+    // Create datasets
+    var datasets = [
+      { label: 'Digital', data: digitalData, backgroundColor: 'rgba(75, 192, 192, 0.7)' },
+      { label: 'TV', data: tvData, backgroundColor: 'rgba(255, 99, 132, 0.7)' },
+      { label: 'Print', data: printData, backgroundColor: 'rgba(54, 162, 235, 0.7)' },
+      { label: 'Films', data: filmsData, backgroundColor: 'rgba(255, 206, 86, 0.7)' },
+      { label: 'Gaming', data: gamingData, backgroundColor: 'rgba(153, 102, 255, 0.7)' },
+      { label: 'Animation and VFX', data: animationData, backgroundColor: 'rgba(255, 159, 64, 0.7)' },
+      { label: 'OOH', data: oohData, backgroundColor: 'rgba(102, 255, 102, 0.7)' },
+      { label: 'Radio', data: radioData, backgroundColor: 'rgba(255, 140, 0, 0.7)' },
+      { label: 'Music', data: musicData, backgroundColor: 'rgba(255, 99, 132, 0.7)' },
+      { label: 'Total', data: totalData, type: 'line', fill: false, borderColor: 'rgba(75, 192, 192, 1)' },
+      { label: 'CAGR', data: cagrData, type: 'line', fill: false, borderColor: 'rgba(255, 99, 132, 1)', yAxisID: 'y-axis-2' },
+    ];
+
+    // Create the chart
+    var ctx = document.getElementById('industryChart').getContext('2d');
+    var industryChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: years,
+        datasets: datasets,
+      },
+      options: {
+        scales: {
+          xAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Fiscal Years'
+            }
+          }],
+          yAxes: [
+            {
+              id: 'y-axis-1',
+              position: 'left',
+              ticks: {
+                beginAtZero: true,
+                callback: function(value, index, values) {
+                  return value + 'B'; // Display values in billions
+                }
+              },
+            },
+            {
+              id: 'y-axis-2',
+              position: 'right',
+              ticks: {
+                beginAtZero: true,
+              },
+            },
+          ],
+        },
+      },
+    });
+
+    // Add custom text labels
+    var ctx = industryChart.chart.ctx;
+    ctx.font = '14px Arial';
+    ctx.fillStyle = '#000';
+    
+    // X-axis labels
+    years.forEach((year, index) => {
+      ctx.fillText(year, industryChart.scales['x-axis-0'].getPixelForTick(index).x - 20, industryChart.height - 10);
+    });
+
+    // Y-axis labels
+    ctx.save();
+    ctx.translate(0, industryChart.height / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillText('Values (in billions)', 0, 10);
+    ctx.restore();
+  </script>
+
+
+   <p class="special-paragraph"> The Indian M&E industry is expected to grow at a CAGR of 13.5 per cent during FY19 to FY24 to reach
+a size of INR3,070 billion by FY24  </p> 
+  <p class="special-paragraph"> 
+    The growth of the M&E industry in India is marked by the incorporation of global content trends and formats.
+The influence of international storytelling techniques, production standards, and visual aesthetics contributes to a convergence of Indian and global cultural elements. <br>
+The rise of digital platforms has transformed them into cultural bridges, connecting audiences with content from different cultures.
+
+ </p>
+
+
+
+
+
+
+ 
+</body>
+</html>

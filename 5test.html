@@ -1,0 +1,214 @@
+<html>
+<head>
+    
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: white;
+            text-align: left;
+            margin: 30px;
+        }
+
+        h1 {
+            color: rgb(0,0,0);
+            text-align: center;
+            font-size: 35px;
+            margin: 30px;
+            font:didot;
+        }
+
+        img {
+            margin: 30px;
+        }
+
+        p {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            margin: 30px
+        }
+        .special-paragraph {
+            color:rgb(105, 152, 171) ;
+            text-align: left;
+            margin: 30px
+        }
+
+        .paraleft{
+            text-align:center; ;
+            color:rgb(64, 104, 130);
+            margin: 30px;
+        }
+       .parastart{
+        text-align: center;
+        font-size:18;
+        font-weight: normal;
+        margin: 30px;
+       }
+       h2 {
+        text-align: center;
+        margin: 30px
+       }
+
+         ul li {
+            text-align: justify;
+             font-size: 16px; 
+              margin-bottom: 4px; 
+              color:rgb(105, 152, 171);
+              font-weight: normal;
+             }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>History</h1>
+        <p class="parastart">Infographic exploring the timeline of Globalisation in India </p>
+    <br>
+
+    
+    <img src="okp.png" style="max-width: 200%; height: 450; display: block; margin: 0 auto;"> 
+
+    <h2> Poverty in INDIA (1993-94 to 2011-12) </h2>
+    
+    <h2> Emergence of a Bourgeois Class</h2>
+
+    
+    <div style="max-width: 800px; margin: 0 auto;">
+        <canvas id="PovertyGDP" width="500" height="200"></canvas>
+    </div>
+ <script>
+    var years = [1993, 2004, 2010, 2012];
+    var ruralHeadcount = [50.1, 41.8, 33.8, 25.7];
+    var urbanHeadcount = [31.8, 25.7, 20.9, 13.7];
+    var gdpGrowth = [4.7, 7.9, 8.4, 5.4];
+
+    var ctx = document.getElementById('PovertyGDP').getContext('2d');
+    var PovertyGDP = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: years,
+        datasets: [{
+          label: 'Rural Headcount',
+          data: ruralHeadcount,
+          backgroundColor: 'rgba(255, 99, 132, 0.5)',
+          borderColor: 'rgba(255, 99, 132, 1)',
+          borderWidth: 1
+        }, {
+          label: 'Urban Headcount',
+          data: urbanHeadcount,
+          backgroundColor: 'rgba(54, 162, 235, 0.5)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1
+        }, {
+          label: 'GDP Growth %',
+          data: gdpGrowth,
+          backgroundColor: 'rgba(75, 192, 192, 0.5)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1
+        }]
+      },
+       options: {
+        scales: {
+          y: {
+            type: 'linear',
+            position: 'left',
+            title: {
+              display: true,
+              text: 'Values'
+            }
+          },
+          x: {
+            type: 'linear',
+            position: 'bottom',
+            title: {
+              display: true,
+              text: 'Years'
+            }
+          }
+        }
+      }
+    });
+  </script>
+    
+ 
+    
+  <p class="special-paragraph"> Figures for poverty based on Government of India Planning Commission estimates. </p> 
+  <p class="special-paragraph"> The implementation of the LPG reforms in 1991 marked a turning point for India, ushering in a period of economic development. This growth, witnessed post-1991, not only contributed to a decline in poverty rates but also paved the way for the emergence and expansion of a bourgeois class. </p>
+
+
+<br>
+
+   <h2> Trends in Consumer Spending, Per Capita Expenditure, and Growth Rate Over Time (1991-2022) </h2>
+    <div style="max-width: 800px; margin: 0 auto;">
+        <canvas id="SpendingChart" width="400" height="300"></canvas>
+    </div>
+    
+    <script>
+  var years = [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022];
+  var spending = [181.02, 189.48, 182.80, 212.21, 229.50, 253.64, 265.79, 268.86, 293.69, 298.55, 311.40, 324.56, 373.76, 413.80, 470.72, 527.58, 678.46, 679.50, 750.92, 916.98, 1024.69, 1031.90, 1070.32, 1185.30, 1241.27, 1360.71, 1557.08, 1602.52, 1727.20, 1636.93, 1925.31, 2049.57];
+  var perCapita = [376.68, 378.46, 386.91, 397.60, 413.49, 437.02, 441.53, 461.44, 480.52, 488.07, 507.86, 513.24, 534.36, 552.66, 584.42, 603.99, 638.54, 657.54, 680.89, 716.71, 759.49, 790.44, 837.23, 879.78, 938.32, 1002.65, 1052.97, 1115.42, 1161.11, 1089.93, 1202.75, 1282.25];
+  var growthRate = [2.16, 2.58, 4.35, 4.86, 6.09, 7.77, 2.99, 6.50, 6.08, 3.44, 5.95, 2.87, 5.93, 5.17, 7.46, 4.94, 7.28, 4.45, 5.00, 6.72, 7.42, 5.47, 7.30, 6.39, 7.93, 8.13, 6.24, 7.09, 5.17, -5.23, 11.23, 7.34];
+
+  var ctx = document.getElementById('SpendingChart').getContext('2d');
+  var SpendingChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: years,
+      datasets: [{
+        label: 'Spending (US $ Billions)',
+        data: spending,
+        borderColor: 'rgba(255, 99, 132, 1)',
+        borderWidth: 2,
+        fill: false
+      }, {
+        label: 'Per Capita Spending',
+        data: perCapita,
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 2,
+        fill: false
+      }, {
+        label: 'Growth Rate (%)',
+        data: growthRate,
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 2,
+        fill: false
+      }]
+    },
+    options: {
+      scales: {
+        x: {
+          type: 'linear',
+          position: 'bottom',
+          title: {
+            display: true,
+            text: 'Years'
+          }
+        },
+        y: {
+          type: 'linear',
+          position: 'left',
+          title: {
+            display: true,
+            text: 'Spending (US $ Billions) / Per Capita / Growth Rate (%)'
+          }
+        }
+      }
+    }
+  });
+</script>
+
+
+   <p class="special-paragraph"> Figures depict the trajectory of consumer spending, per capita expenditure, and growth rate over the years, offering insights into economic trends from 1991 to 2022.  </p> 
+  <p class="special-paragraph"> 
+India's cultural ethos has been significantly shaped by the evolving values of the urban middle class and bourgeoisie, notably exemplified by the rise in consumerism.  The desire for material possessions, the adoption of global trends, and the influence of media and technology have all contributed to shaping the cultural ethos. This shift is often reflected in attitudes towards fashion, entertainment, and leisure activities. </p>
+
+
+
+
+
+
+ 
+</body>
+</html>
+
+
+

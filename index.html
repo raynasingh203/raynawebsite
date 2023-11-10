@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>website wip</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+        :root {
+            --headline-color: white;
+            --background-color: #11151c;
+            --text-color: rgba(255, 255, 255, 0.5);
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: var(--background-color);
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-color);
+        }
+
+
+            text-align: center;
+        }
+
+       
+        body {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .canvas-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        #iframe-background {
+            width: 100%;
+            height: 100%;
+        }
+
+        .headline-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        #text-behind, #text-front, #text-behind-blur {
+            font-family: 'Roboto', sans-serif;
+            position: absolute;
+            text-align: center;
+            font-size: clamp(12px, 10vw, 80px);
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 10px;
+            line-height: 0.8;
+        }
+
+        #text-behind {
+            color: var(--headline-color);
+            z-index: 1;
+        }
+
+        #text-behind-blur {
+            color: var(--headline-color);
+            filter: blur(7.5px);
+            -webkit-filter: blur(7.5px);
+            z-index: 0;
+        }
+
+        #text-front {
+            color: transparent;
+            text-stroke: 2px var(--headline-color);
+            -webkit-text-stroke: 2px var(--headline-color);
+            z-index: 3;
+        }
+
+        .more-content {
+            width: 100%;
+            height: 100%;
+        }
+
+        .title {
+            font-size: 0.5rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.3rem;
+            font-weight: 500;
+        }
+
+        p {
+            font-size: 0.75rem;
+        }
+
+        a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            transition: all 0.5s ease-in-out;
+        }
+
+        a:hover {
+            filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.9));
+        }
+
+        .hamburger-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 20px;
+            z-index: 4;
+            cursor: pointer;
+        }
+
+        .hamburger-icon {
+            width: 25px;
+            height: 3px;
+            background-color: #ffec00;
+            margin: 5px 0;
+            transition: all 0.3s;
+        }
+
+        .menu-open .hamburger-icon:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-open .hamburger-icon:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-open .hamburger-icon:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .navigation-menu {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: left 0.3s;
+        }
+
+        .menu-open .navigation-menu {
+            left: 0;
+        }
+
+        .menu-content {
+            text-align: center;
+            color: black;
+        }
+
+        .menu-item {
+            font-size: 1.5rem;
+            margin: 10px;
+            cursor: pointer;
+            color: #ffec00;
+        }
+        .button-container {
+    position: absolute;
+    top: 2%;
+    bottom: 20px;
+    right: 0%;
+    transform: translateX(-50%);
+    z-index: 3; 
+         }
+
+         .dive-in-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #11151c; 
+    color: #ffec00; 
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+}
+
+
+.dive-in-button:hover {
+    background-color: #11151c;
+    color: #ffec00;
+}
+
+
+
+    </style>
+</head>
+
+
+
+
+
+<body>
+    <div class="hamburger-menu" onclick="toggleMenu()">
+        <div class="hamburger-icon"></div>
+        <div class="hamburger-icon"></div>
+        <div class="hamburger-icon"></div>
+    </div>
+
+    <h1>hello</h1>
+
+    <div class="canvas-container">
+        <iframe id="iframe-background" name="Myframe" src="https://my.spline.design/portalcopy-a546dd738c74e331cd8a04fa28e5c539/" frameborder="0"></iframe>
+    </div>
+
+    <div class="headline-container">
+        <div id="text-behind">Labyrinth<br> of<br> Globalisation</div>
+        <div id="text-behind-blur">Labyrinth<br> of <br>Globalisation</div>
+        <div id="text-front">Labyrinth<br> of<br> Globalisation</div>
+    </div>
+
+
+   <div class="button-container">
+    <a class="dive-in-button" href="iframehorizontal.html" target="Myframe"onclick="hideLabyrinthText()">DIVE IN</a>
+</div>
+
+
+
+
+    
+
+     
+<div class="more-content"></div>
+    <div class="navigation-menu">
+        <div class="menu-content" id="menuContent">
+           <p class="menu-item" onclick="toggleMenu()">HOME</p>
+<p class="menu-item" href="iframehorizontal.html" target="Myframe"onclick="hideLabyrinthText()">EXPLORE</p>
+
+        </div>
+    </div>
+
+
+
+
+</body>
+
+
+<script>
+ 
+
+        function hideLabyrinthText() {
+       
+            document.getElementById("text-behind").style.display = "none";
+            document.getElementById("text-behind-blur").style.display = "none";
+            document.getElementById("text-front").style.display = "none";
+        }
+
+        function explorePage() {
+        // Replace the iframe source with "iframehorizontal.html"
+        document.getElementById("iframe-background").src = "iframehorizontal.html";
+        // Close the menu
+        toggleMenu();
+        // Hide the Labyrinth text
+        hideLabyrinthText();
+    }
+
+ function loadLandingPage() {
+        // Replace the iframe source with "landingpage.html"
+        document.getElementById("iframe-background").src = "landingpage.html";
+        // Close the menu
+        toggleMenu();
+    }
+
+
+
+
+
+        function toggleMenu(page) {
+            const body = document.body;
+            const menuContent = document.getElementById("menuContent");
+
+            body.classList.toggle("menu-open");
+
+            if (body.classList.contains("menu-open")) {
+            menuContent.innerHTML = `
+                <p class="menu-item" onclick="loadLandingPage()">HOME</p>
+                <p class="menu-item" onclick="explorePage()">EXPLORE</p>
+            `;
+        } else {
+            menuContent.innerHTML = '';
+        }
+    }
+    </script>
+
+</html>
